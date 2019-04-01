@@ -152,6 +152,8 @@ namespace AudioTello
                 _spectrumdata.Add((byte)y);
                 //Console.Write("{0, 3} ", y);
             }
+            ///Por aca tomo los valores del spectrum.
+            Console.WriteLine("[{0}]", string.Join(", ",_spectrumdata));
 
             if (DisplayEnable) _spectrum.Set(_spectrumdata);
             for (int i = 0; i < _spectrumdata.ToArray().Length; i++)

@@ -158,9 +158,10 @@ namespace AudioTello
         {
                 analyzer.Enable = true;
                 analyzer.DisplayEnable = true;
-            
+            List<byte> myBytes = analyzer._spectrumdata.ToList();
+            LabelValores.Text = " MO MO MO MO MO ";
 
-            
+
         }
 
         private void ButtonSpectrumOff_Click(object sender, EventArgs e)
@@ -170,6 +171,10 @@ namespace AudioTello
             BassWasapi.BASS_WASAPI_Stop(true);
             ButtonSpectrumOn.Enabled = true;
             comboBox1.Enabled = true;
+            timer1.Enabled = false;
+
+            
+
         }
 
         private void TimerAudioLeftRight_Tick(object sender, EventArgs e)
@@ -180,6 +185,11 @@ namespace AudioTello
         }
 
         private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
 
         }

@@ -42,7 +42,11 @@
             this.CheckBoxSelectCom = new System.Windows.Forms.CheckBox();
             this.checkBoxSoftware = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.leftRght1 = new AudioTello.LeftRght();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.spectrum1 = new AudioTello.Spectrum();
             this.textBoxExit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TimerCron = new System.Windows.Forms.Timer(this.components);
@@ -56,10 +60,7 @@
             this.AudioTxtLeft = new System.Windows.Forms.Label();
             this.AudioTxtRight = new System.Windows.Forms.Label();
             this.TimerAudioLeftRight = new System.Windows.Forms.Timer(this.components);
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.spectrum1 = new AudioTello.Spectrum();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.leftRght1 = new AudioTello.LeftRght();
+            this.LabelValores = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -169,6 +170,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Audio left/ right";
             // 
+            // elementHost2
+            // 
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(3, 16);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(115, 167);
+            this.elementHost2.TabIndex = 0;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.leftRght1;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.elementHost1);
@@ -178,6 +189,17 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Audio Spectrum";
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(3, 16);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(1296, 147);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
+            this.elementHost1.Child = this.spectrum1;
             // 
             // textBoxExit
             // 
@@ -243,8 +265,14 @@
             this.progressBar2.TabIndex = 8;
             this.progressBar2.Value = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // chart1
             // 
+            this.chart1.BorderlineColor = System.Drawing.Color.DimGray;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -257,7 +285,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1323, 160);
+            this.chart1.Size = new System.Drawing.Size(1323, 147);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
             // 
@@ -295,32 +323,21 @@
             this.TimerAudioLeftRight.Interval = 25;
             this.TimerAudioLeftRight.Tick += new System.EventHandler(this.TimerAudioLeftRight_Tick);
             // 
-            // elementHost1
+            // LabelValores
             // 
-            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost1.Location = new System.Drawing.Point(3, 16);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(1296, 147);
-            this.elementHost1.TabIndex = 0;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
-            this.elementHost1.Child = this.spectrum1;
-            // 
-            // elementHost2
-            // 
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(3, 16);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(115, 167);
-            this.elementHost2.TabIndex = 0;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.leftRght1;
+            this.LabelValores.AutoSize = true;
+            this.LabelValores.Location = new System.Drawing.Point(406, 361);
+            this.LabelValores.Name = "LabelValores";
+            this.LabelValores.Size = new System.Drawing.Size(42, 13);
+            this.LabelValores.TabIndex = 13;
+            this.LabelValores.Text = "Valores";
             // 
             // AudioControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 637);
+            this.Controls.Add(this.LabelValores);
             this.Controls.Add(this.AudioTxtRight);
             this.Controls.Add(this.AudioTxtLeft);
             this.Controls.Add(this.ButtonSpectrumOff);
@@ -380,6 +397,7 @@
         private System.Windows.Forms.Label AudioTxtLeft;
         private System.Windows.Forms.Label AudioTxtRight;
         private System.Windows.Forms.Timer TimerAudioLeftRight;
+        private System.Windows.Forms.Label LabelValores;
     }
 }
 
