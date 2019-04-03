@@ -32,7 +32,7 @@ namespace AudioTello
         {
             
 
-            DateTime dt = new DateTime();
+           // DateTime dt = new DateTime();
             InitializeComponent();
             comboBoxSoft.Enabled = false;
             ComboBoxCom.Enabled = false;
@@ -159,7 +159,7 @@ namespace AudioTello
                 analyzer.Enable = true;
                 analyzer.DisplayEnable = true;
             List<byte> myBytes = analyzer._spectrumdata.ToList();
-            LabelValores.Text = " MO MO MO MO MO ";
+           
 
 
         }
@@ -172,8 +172,9 @@ namespace AudioTello
             ButtonSpectrumOn.Enabled = true;
             comboBox1.Enabled = true;
             timer1.Enabled = false;
+            LabelValores.Text = " Me Me Me Me Me ";
 
-            
+
 
         }
 
@@ -191,6 +192,7 @@ namespace AudioTello
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            LabelValores.Text = " MO MO MO MO MO ";
 
         }
     }
